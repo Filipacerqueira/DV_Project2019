@@ -126,7 +126,7 @@ del all_data, countries_complete, data_2018, data_2017, data_2016, city, country
 country_options = [dict(label=country, value=country) for country in df_opportunity.iloc[:, 0].unique()]
 
 app = dash.Dash(__name__)
-server=app.server()
+server=app.server
 
 variable_options = [dict(label=variable, value=variable) for variable in df.columns[1:]]
 

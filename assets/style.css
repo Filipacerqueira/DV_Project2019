@@ -185,6 +185,11 @@ body {
     font-family: "Helvetica";
 }
 
+#mainContainer2{
+    vertical-align: middle;}
+
+#row-flex-display{
+    vertical-align: middle;}
 
 #description2 {
     margin-top: 1rem;
@@ -243,6 +248,7 @@ body {
 #mainContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .row flex-display {
@@ -316,5 +322,17 @@ body {
     width: 450px;
 }
 
+#label1 {
+    colour: #e0e0eb;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    line-height: 2rem;
+}
 
+#label2 {
+    colour: #e0e0eb;
+    margin-right: 2rem;
+    margin-left: 2rem;
+    line-height: 2rem;
+}
 

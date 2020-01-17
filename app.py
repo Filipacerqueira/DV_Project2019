@@ -170,7 +170,7 @@ tab1_layout = html.Div(
 )
 
 tab2_layout = html.Div(children=[
-    html.Div([
+    html.Div(id='row-flex-display', children=[
         html.Div(id='tabContainer2', className='tabs1', children=[
             html.Div(id='tab2_1',
                      children=[html.Div(className='control-tab', id='description2', children=[
@@ -185,14 +185,13 @@ tab2_layout = html.Div(children=[
                                                          value='Data Scientist Salary', clearable=False)]
                                   )]
                                         )])]
-                 )], style={'width': '49%', 'display': 'inline-block',
-                            'vertical-align': 'middle'}, className='row flex-display'),
+                 )], style={'width': '49%', 'display': 'inline-block'}, className='row flex-display'),
     html.Div([
         html.Div(
             children=[dcc.Graph(id='barGraph')],
             id='bargraph', className='tabs1'
         )],
-        style={'width': '49%', 'display': 'inline-block', 'vertical-align': 'middle'}, className='ta',
+        style={'width': '49%', 'display': 'inline-block'}, className='ta',
         id="mainContainer2")
 ])
 
@@ -245,13 +244,9 @@ app.layout = html.Div([
                                                          className="description",
                                                      ),
                                                      html.Br(),
-                                                     html.Label('Select your Countries here',
-                                                                style={'font-size': '0.9rem',
-                                                                       'colour': '#e0e0eb',
-                                                                       'margin-right': '2rem',
-                                                                       'margin-left': '2rem',
-                                                                       'line-height': '2rem'
-                                                                       }),
+                                                     html.Label(id = 'label1',
+                                                                children=['Select your Countries here']
+                                                                ),
                                                      dcc.Dropdown(
                                                          id='country_drop',
                                                          options=country_options,
@@ -260,11 +255,8 @@ app.layout = html.Div([
                                                          className='drown'
                                                      ),
                                                      html.Br(),
-                                                     html.Label('Select a year range',
-                                                                style={'margin-right': '2rem',
-                                                                       'margin-left': '2rem',
-                                                                       'font-size': '0.9rem',
-                                                                       'colour': '#e0e0eb'}
+                                                     html.Label(id = 'label2',
+                                                                children=['Select a year range']
                                                                 ),
                                                      dcc.RangeSlider(
                                                          id='year_slider',
@@ -288,22 +280,22 @@ app.layout = html.Div([
                                                              html.Div(
                                                                  [html.H6(id="happiness"),
                                                                   html.P("World Happiness Score"),
-                                                                  html.P("5.38 /10", style={'font-weight': 'bold'})],
+                                                                  html.P("5.38 /10")],
                                                                  id="hap_score",
                                                                  className="mini_container",
                                                              ),
                                                              html.Div(
                                                                  [html.H6(id="cosliving"),
                                                                   html.P("World Cost of Living Index"),
-                                                                  html.P("63.65%", style={'font-weight': 'bold'
-                                                                                          })],
+                                                                  html.P("63.65%")
+                                                                  ],
                                                                  id="cli",
                                                                  className="mini_container",
                                                              ),
                                                              html.Div(
                                                                  [html.H6(id="DS_sal"),
                                                                   html.P("World Annual Data Scientists' Salary"),
-                                                                  html.P("$ 57576", style={'font-weight': 'bold'})],
+                                                                  html.P("$ 57576")],
                                                                  id="salary",
                                                                  className="mini_container",
                                                              ),
@@ -346,8 +338,7 @@ app.layout = html.Div([
                                          className="row flex-display",
                                      ),
                                  ],
-                                     id="mainContainer",
-                                     style={"justify-content": "center"}
+                                     id="mainContainer"
                                  )
                              ]
                              )

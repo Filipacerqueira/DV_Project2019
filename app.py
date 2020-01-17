@@ -371,7 +371,8 @@ def plots(year, countries):
                        yaxis=dict(title='Wage (%)'),
                        template="plotly_dark"
                        )
-
+    fig1 = go.Figure(data=data_line, layout=layout_line)
+    
     data_scatter = []
 
     for pais1 in countries:
@@ -392,7 +393,8 @@ def plots(year, countries):
                       xaxis=dict(title='Data Scientists Salary'),
                       template="plotly_dark"
                       )
-
+    fig2 = go.Figure(data=data_scatter, layout=layout_sct)
+    
     data_bar = []
     for pais2 in countries:
         df_bar = df.loc[(df['Country'] == pais2)]
@@ -405,7 +407,8 @@ def plots(year, countries):
 
     layout_bar = dict(title=dict(text='How expensive is it to live here?'),
                       template="plotly_dark")
-
+    fig3 = go.Figure(data=data_bar, layout=layout_bar)
+    
     x_dot1 = []
     x_dot2 = []
     x_dot3 = []
@@ -446,9 +449,9 @@ def plots(year, countries):
                       ),
                       template="plotly_dark",
                       )
-
-    return go.Figure(data=data_line, layout=layout_line), go.Figure(data=data_scatter, layout=layout_sct), \
-           go.Figure(data=data_bar, layout=layout_bar), go.Figure(data=data_dot, layout=layout_dot)
+    fig4 = go.Figure(data=data_dot, layout=layout_dot)
+    
+    return fig1, fig2, fig3, fig4
 
 
 @app.callback(
